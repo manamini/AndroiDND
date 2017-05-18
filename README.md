@@ -3,7 +3,7 @@
 
 
 
-5/18/17 commit
+5/18/17 
 *Basic Info*
 Bulk of main code. Main Layout, top fragment, and statsTab are set up. The other tabs need to be finished.
 
