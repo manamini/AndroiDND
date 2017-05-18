@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:layout_below="@+id/charstats"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="this is where notes go so if there are too many I will have to figure something else out cause that will look like shit if there are not enough of them to go around when needed" />
+    </LinearLayout>
+
+</RelativeLayout>
