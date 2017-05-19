@@ -127,31 +127,30 @@ public class Stats extends Fragment {
         charismaEdit.addTextChangedListener(chrEditWatcher);
 
         //Checkbox listeners organized by attribute
-        FillOnCheckedListener(performance, performanceBonus);
-        FillOnCheckedListener((persuasion, persuasionBonus));
-        FillOnCheckedListener(strSave, strSaveBonus);
-        FillOnCheckedListener(athletics, athleticsBonus);
-        FillOnCheckedListener((dexSave, dexSaveBonus));
-        FillOnCheckedListener(acrobatics, acrobaticsBonus);
-        FillOnCheckedListener((sleight, sleightBonus));
-        FillOnCheckedListener(stealth, stealthBonus);
-        FillOnCheckedListener((conSave, conSaveBonus));
-        FillOnCheckedListener(intSave, intSaveBonus);
-        FillOnCheckedListener((arcana, arcanaBonus));
-        FillOnCheckedListener(history, historyBonus);
-        FillOnCheckedListener((investigation, investigationBonus));
-        FillOnCheckedListener(nature, natureBonus);
-        FillOnCheckedListener((religion, religionBonus));
-        FillOnCheckedListener(wisSave, wisSaveBonus);
-        FillOnCheckedListener((animal, animalBonus));
-        FillOnCheckedListener(insight, insightBonus);
-        FillOnCheckedListener((medicine, medicineBonus));
-        FillOnCheckedListener(survival, survivalBonus);
-        FillOnCheckedListener((chrSave, chrSaveBonus));
-        FillOnCheckedListener(deception, deceptionBonus);
-        FillOnCheckedListener((intimidation, intimidationBonus));
-        FillOnCheckedListener(performance, performanceBonus);
-        FillOnCheckedListener((persuasion, persuasionBonus));
+        FillOnCheckedListener(strSave, strSaveBonus, strengthBonus);
+        FillOnCheckedListener(athletics, athleticsBonus, strengthBonus);
+        FillOnCheckedListener(dexSave, dexSaveBonus, dexterityBonus);
+        FillOnCheckedListener(acrobatics, acrobaticsBonus, dexterityBonus);
+        FillOnCheckedListener(sleight, sleightBonus, dexterityBonus);
+        FillOnCheckedListener(stealth, stealthBonus, dexterityBonus);
+        FillOnCheckedListener(conSave, conSaveBonus, constitutionBonus);
+        FillOnCheckedListener(intSave, intSaveBonus, intelligenceBonus);
+        FillOnCheckedListener(arcana, arcanaBonus, intelligenceBonus);
+        FillOnCheckedListener(history, historyBonus, intelligenceBonus);
+        FillOnCheckedListener(investigation, investigationBonus, intelligenceBonus);
+        FillOnCheckedListener(nature, natureBonus, intelligenceBonus);
+        FillOnCheckedListener(religion, religionBonus, intelligenceBonus);
+        FillOnCheckedListener(wisSave, wisSaveBonus, wisdomBonus);
+        FillOnCheckedListener(animal, animalBonus, wisdomBonus);
+        FillOnCheckedListener(insight, insightBonus, wisdomBonus);
+        FillOnCheckedListener(medicine, medicineBonus, wisdomBonus);
+        FillOnCheckedListener(perception, perceptionBonus, wisdomBonus);
+        FillOnCheckedListener(survival, survivalBonus, wisdomBonus);
+        FillOnCheckedListener(chrSave, chrSaveBonus, charismaBonus);
+        FillOnCheckedListener(deception, deceptionBonus, charismaBonus);
+        FillOnCheckedListener(intimidation, intimidationBonus, charismaBonus);
+        FillOnCheckedListener(performance, performanceBonus, charismaBonus);
+        FillOnCheckedListener(persuasion, persuasionBonus, charismaBonus);
         //
         // End Checkbox listeners
         //
@@ -159,16 +158,16 @@ public class Stats extends Fragment {
         return rootView;
     }
 
-    private void FillOnCheckedListener(CheckBox checkBox, TextView textView){
+    private void FillOnCheckedListener(CheckBox checkBox, final TextView textView, final TextView attribute){
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(textView, isChecked);
+                FillBonuses(textView, isChecked, attribute);
             }
         });
     }
 
-    private void FillBonuses(TextView textView, boolean isChecked){
+    private void FillBonuses(TextView textView, boolean isChecked, TextView attribute){
         if (isChecked) {
             if (textView.getText().length() > 0) {
                 if (Integer.parseInt(textView.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
@@ -180,7 +179,7 @@ public class Stats extends Fragment {
                 }
             }
         } else if (!isChecked) {
-            textView.setText(charismaBonus.getText().toString());
+            textView.setText(attribute.getText().toString());
         }
     }
 
