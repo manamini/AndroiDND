@@ -131,433 +131,145 @@ public class Stats extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 String strchk = strSaveBonus.getText().toString();
-                if (isChecked) {
-                    if (strSaveBonus.getText().length() > 0) {
-                        if (Integer.parseInt(strSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            strSaveBonus.setText("-" + (Integer.parseInt(strSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(strSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            strSaveBonus.setText("0");
-                        } else {
-                            strSaveBonus.setText("+" + (Integer.parseInt(strSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    strSaveBonus.setText(strengthBonus.getText().toString());
-                }
+                FillBonuses(strSaveBonus, isChecked);
             }
         });
         athletics.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (athleticsBonus.getText().length() > 0) {
-                        if (Integer.parseInt(athleticsBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            athleticsBonus.setText("-" + (Integer.parseInt(athleticsBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(athleticsBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            athleticsBonus.setText("0");
-                        } else {
-                            athleticsBonus.setText("+" + (Integer.parseInt(athleticsBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    athleticsBonus.setText(strengthBonus.getText().toString());
-                }
+                FillBonuses(athleticsBonus, isChecked);
             }
         });
         dexSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (dexSaveBonus.getText().length() > 0) {
-                        if (Integer.parseInt(dexSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            dexSaveBonus.setText("-" + (Integer.parseInt(dexSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(dexSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            dexSaveBonus.setText("0");
-                        } else {
-                            dexSaveBonus.setText("+" + (Integer.parseInt(dexSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    dexSaveBonus.setText(dexterityBonus.getText().toString());
-                }
+                FillBonuses(dexSaveBonus, isChecked);
             }
         });
         acrobatics.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (acrobaticsBonus.getText().length() > 0) {
-                        if (Integer.parseInt(acrobaticsBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            acrobaticsBonus.setText("-" + (Integer.parseInt(acrobaticsBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(acrobaticsBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            acrobaticsBonus.setText("0");
-                        } else {
-                            acrobaticsBonus.setText("+" + (Integer.parseInt(acrobaticsBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    acrobaticsBonus.setText(dexterityBonus.getText().toString());
-                }
+                FillBonuses(acrobaticsBonus, isChecked);
             }
         });
         sleight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (sleightBonus.getText().length() > 0) {
-                        if (Integer.parseInt(sleightBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            sleightBonus.setText("-" + (Integer.parseInt(sleightBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(sleightBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            sleightBonus.setText("0");
-                        } else {
-                            sleightBonus.setText("+" + (Integer.parseInt(sleightBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    sleightBonus.setText(dexterityBonus.getText().toString());
-                }
+                FillBonuses(sleightBonus, isChecked);
             }
         });
         stealth.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (stealthBonus.getText().length() > 0) {
-                        if (Integer.parseInt(stealthBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            stealthBonus.setText("-" + (Integer.parseInt(stealthBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(stealthBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            stealthBonus.setText("0");
-                        } else {
-                            stealthBonus.setText("+" + (Integer.parseInt(stealthBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    stealthBonus.setText(dexterityBonus.getText().toString());
-                }
+                FillBonuses(stealthBonus, isChecked);
             }
         });
         conSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (conSaveBonus.getText().length() > 0) {
-                        if (Integer.parseInt(conSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            conSaveBonus.setText("-" + (Integer.parseInt(conSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(conSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            conSaveBonus.setText("0");
-                        } else {
-                            conSaveBonus.setText("+" + (Integer.parseInt(conSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    conSaveBonus.setText(constitutionBonus.getText().toString());
-                }
+                FillBonuses(conSaveBonus, isChecked);
             }
         });
         intSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (intSaveBonus.getText().length() > 0) {
-                        if (Integer.parseInt(intSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            intSaveBonus.setText("-" + (Integer.parseInt(intSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(intSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            intSaveBonus.setText("0");
-                        } else {
-                            intSaveBonus.setText("+" + (Integer.parseInt(intSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    intSaveBonus.setText(intelligenceBonus.getText().toString());
-                }
+                FillBonuses(intSaveBonus, isChecked);
             }
         });
         arcana.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (arcanaBonus.getText().length() > 0) {
-                        if (Integer.parseInt(arcanaBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            arcanaBonus.setText("-" + (Integer.parseInt(arcanaBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(arcanaBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            arcanaBonus.setText("0");
-                        } else {
-                            arcanaBonus.setText("+" + (Integer.parseInt(arcanaBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    arcanaBonus.setText(intelligenceBonus.getText().toString());
-                }
+                FillBonuses(arcanaBonus, isChecked);
             }
         });
         history.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (historyBonus.getText().length() > 0) {
-                        if (Integer.parseInt(historyBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            historyBonus.setText("-" + (Integer.parseInt(historyBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(historyBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            historyBonus.setText("0");
-                        } else {
-                            historyBonus.setText("+" + (Integer.parseInt(historyBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    historyBonus.setText(intelligenceBonus.getText().toString());
-                }
+                FillBonuses(historyBonus, isChecked);
             }
         });
         investigation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (investigationBonus.getText().length() > 0) {
-                        if (Integer.parseInt(investigationBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            investigationBonus.setText("-" + (Integer.parseInt(investigationBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(investigationBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            investigationBonus.setText("0");
-                        } else {
-                            investigationBonus.setText("+" + (Integer.parseInt(investigationBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    investigationBonus.setText(intelligenceBonus.getText().toString());
-                }
+                FillBonuses(investigationBonus, isChecked);
             }
         });
         nature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (natureBonus.getText().length() > 0) {
-                        if (Integer.parseInt(natureBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            natureBonus.setText("-" + (Integer.parseInt(natureBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(natureBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            natureBonus.setText("0");
-                        } else {
-                            natureBonus.setText("+" + (Integer.parseInt(natureBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    natureBonus.setText(intelligenceBonus.getText().toString());
-                }
+                FillBonuses(natureBonus, isChecked);
             }
         });
         religion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (religionBonus.getText().length() > 0) {
-                        if (Integer.parseInt(religionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            religionBonus.setText("-" + (Integer.parseInt(religionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(religionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            religionBonus.setText("0");
-                        } else {
-                            religionBonus.setText("+" + (Integer.parseInt(religionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    religionBonus.setText(intelligenceBonus.getText().toString());
-                }
+                FillBonuses(religionBonus, isChecked);
             }
         });
         wisSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (wisSaveBonus.getText().length() > 0) {
-                        if (Integer.parseInt(wisSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            wisSaveBonus.setText("-" + (Integer.parseInt(wisSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(wisSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            wisSaveBonus.setText("0");
-                        } else {
-                            wisSaveBonus.setText("+" + (Integer.parseInt(wisSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    wisSaveBonus.setText(wisdomBonus.getText().toString());
-                }
+                FillBonuses(wisSaveBonus, isChecked);
             }
         });
         animal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (animalBonus.getText().length() > 0) {
-                        if (Integer.parseInt(animalBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            animalBonus.setText("-" + (Integer.parseInt(animalBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(animalBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            animalBonus.setText("0");
-                        } else {
-                            animalBonus.setText("+" + (Integer.parseInt(animalBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    animalBonus.setText(wisdomBonus.getText().toString());
-                }
+                FillBonuses(animalBonus, isChecked);
             }
         });
         insight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (insightBonus.getText().length() > 0) {
-                        if (Integer.parseInt(insightBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            insightBonus.setText("-" + (Integer.parseInt(insightBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(insightBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            insightBonus.setText("0");
-                        } else {
-                            insightBonus.setText("+" + (Integer.parseInt(insightBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    insightBonus.setText(wisdomBonus.getText().toString());
-                }
+                FillBonuses(insightBonus, isChecked);
             }
         });
         medicine.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (medicineBonus.getText().length() > 0) {
-                        if (Integer.parseInt(medicineBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            medicineBonus.setText("-" + (Integer.parseInt(medicineBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(medicineBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            medicineBonus.setText("0");
-                        } else {
-                            medicineBonus.setText("+" + (Integer.parseInt(medicineBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    medicineBonus.setText(wisdomBonus.getText().toString());
-                }
+                FillBonuses(medicineBonus, isChecked);
             }
         });
         perception.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (perceptionBonus.getText().length() > 0) {
-                        if (Integer.parseInt(perceptionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            perceptionBonus.setText("-" + (Integer.parseInt(perceptionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(perceptionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            perceptionBonus.setText("0");
-                        } else {
-                            perceptionBonus.setText("+" + (Integer.parseInt(perceptionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    perceptionBonus.setText(wisdomBonus.getText().toString());
-                }
+                FillBonuses(perceptionBonus, isChecked);
             }
         });
         survival.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (survivalBonus.getText().length() > 0) {
-                        if (Integer.parseInt(survivalBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            survivalBonus.setText("-" + (Integer.parseInt(wisSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(survivalBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            survivalBonus.setText("0");
-                        } else {
-                            survivalBonus.setText("+" + (Integer.parseInt(survivalBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    survivalBonus.setText(wisdomBonus.getText().toString());
-                }
+                FillBonuses(survivalBonus, isChecked);
             }
         });
         chrSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (chrSaveBonus.getText().length() > 0) {
-                        if (Integer.parseInt(chrSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            chrSaveBonus.setText("-" + (Integer.parseInt(chrSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(chrSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            chrSaveBonus.setText("0");
-                        } else {
-                            chrSaveBonus.setText("+" + (Integer.parseInt(chrSaveBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    chrSaveBonus.setText(charismaBonus.getText().toString());
-                }
+                FillBonuses(chrSaveBonus, isChecked);
             }
         });
         deception.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (deceptionBonus.getText().length() > 0) {
-                        if (Integer.parseInt(deceptionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            deceptionBonus.setText("-" + (Integer.parseInt(deceptionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(deceptionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            deceptionBonus.setText("0");
-                        } else {
-                            deceptionBonus.setText("+" + (Integer.parseInt(deceptionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    deceptionBonus.setText(charismaBonus.getText().toString());
-                }
+                FillBonuses(deceptionBonus, isChecked);
             }
         });
         intimidation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (intimidationBonus.getText().length() > 0) {
-                        if (Integer.parseInt(intimidationBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            intimidationBonus.setText("-" + (Integer.parseInt(intimidationBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(intimidationBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            intimidationBonus.setText("0");
-                        } else {
-                            intimidationBonus.setText("+" + (Integer.parseInt(intimidationBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    intimidationBonus.setText(charismaBonus.getText().toString());
-                }
+                FillBonuses(intimidationBonus, isChecked);
             }
         });
         performance.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (performanceBonus.getText().length() > 0) {
-                        if (Integer.parseInt(performanceBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            performanceBonus.setText("-" + (Integer.parseInt(performanceBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(performanceBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            performanceBonus.setText("0");
-                        } else {
-                            performanceBonus.setText("+" + (Integer.parseInt(performanceBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    performanceBonus.setText(charismaBonus.getText().toString());
-                }
+                FillBonuses(performanceBonus, isChecked);
             }
         });
         persuasion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    if (persuasionBonus.getText().length() > 0) {
-                        if (Integer.parseInt(persuasionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
-                            persuasionBonus.setText("-" + (Integer.parseInt(persuasionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        } else if (Integer.parseInt(persuasionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
-                            persuasionBonus.setText("0");
-                        } else {
-                            persuasionBonus.setText("+" + (Integer.parseInt(persuasionBonus.getText().toString()) + Integer.parseInt(MainActivity.profic)));
-                        }
-                    }
-                } else if (!isChecked) {
-                    persuasionBonus.setText(charismaBonus.getText().toString());
-                }
+                FillBonuses(persuasionBonus, isChecked);
             }
         });
         //
@@ -565,6 +277,22 @@ public class Stats extends Fragment {
         //
 
         return rootView;
+    }
+
+    private void FillBonuses(TextView textView, boolean isChecked){
+        if (isChecked) {
+            if (textView.getText().length() > 0) {
+                if (Integer.parseInt(textView.getText().toString()) + Integer.parseInt(MainActivity.profic) < 0) {
+                    textView.setText("-" + (Integer.parseInt(textView.getText().toString()) + Integer.parseInt(MainActivity.profic)));
+                } else if (Integer.parseInt(textView.getText().toString()) + Integer.parseInt(MainActivity.profic) == 0) {
+                    textView.setText("0");
+                } else {
+                    textView.setText("+" + (Integer.parseInt(textView.getText().toString()) + Integer.parseInt(MainActivity.profic)));
+                }
+            }
+        } else if (!isChecked) {
+            textView.setText(charismaBonus.getText().toString());
+        }
     }
 
     @Override
