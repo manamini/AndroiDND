@@ -127,156 +127,45 @@ public class Stats extends Fragment {
         charismaEdit.addTextChangedListener(chrEditWatcher);
 
         //Checkbox listeners organized by attribute
-        strSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                String strchk = strSaveBonus.getText().toString();
-                FillBonuses(strSaveBonus, isChecked);
-            }
-        });
-        athletics.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(athleticsBonus, isChecked);
-            }
-        });
-        dexSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(dexSaveBonus, isChecked);
-            }
-        });
-        acrobatics.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(acrobaticsBonus, isChecked);
-            }
-        });
-        sleight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(sleightBonus, isChecked);
-            }
-        });
-        stealth.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(stealthBonus, isChecked);
-            }
-        });
-        conSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(conSaveBonus, isChecked);
-            }
-        });
-        intSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(intSaveBonus, isChecked);
-            }
-        });
-        arcana.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(arcanaBonus, isChecked);
-            }
-        });
-        history.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(historyBonus, isChecked);
-            }
-        });
-        investigation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(investigationBonus, isChecked);
-            }
-        });
-        nature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(natureBonus, isChecked);
-            }
-        });
-        religion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(religionBonus, isChecked);
-            }
-        });
-        wisSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(wisSaveBonus, isChecked);
-            }
-        });
-        animal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(animalBonus, isChecked);
-            }
-        });
-        insight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(insightBonus, isChecked);
-            }
-        });
-        medicine.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(medicineBonus, isChecked);
-            }
-        });
-        perception.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(perceptionBonus, isChecked);
-            }
-        });
-        survival.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(survivalBonus, isChecked);
-            }
-        });
-        chrSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(chrSaveBonus, isChecked);
-            }
-        });
-        deception.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(deceptionBonus, isChecked);
-            }
-        });
-        intimidation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(intimidationBonus, isChecked);
-            }
-        });
-        performance.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(performanceBonus, isChecked);
-            }
-        });
-        persuasion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FillBonuses(persuasionBonus, isChecked);
-            }
-        });
+        FillOnCheckedListener(performance, performanceBonus);
+        FillOnCheckedListener((persuasion, persuasionBonus));
+        FillOnCheckedListener(strSave, strSaveBonus);
+        FillOnCheckedListener(athletics, athleticsBonus);
+        FillOnCheckedListener((dexSave, dexSaveBonus));
+        FillOnCheckedListener(acrobatics, acrobaticsBonus);
+        FillOnCheckedListener((sleight, sleightBonus));
+        FillOnCheckedListener(stealth, stealthBonus);
+        FillOnCheckedListener((conSave, conSaveBonus));
+        FillOnCheckedListener(intSave, intSaveBonus);
+        FillOnCheckedListener((arcana, arcanaBonus));
+        FillOnCheckedListener(history, historyBonus);
+        FillOnCheckedListener((investigation, investigationBonus));
+        FillOnCheckedListener(nature, natureBonus);
+        FillOnCheckedListener((religion, religionBonus));
+        FillOnCheckedListener(wisSave, wisSaveBonus);
+        FillOnCheckedListener((animal, animalBonus));
+        FillOnCheckedListener(insight, insightBonus);
+        FillOnCheckedListener((medicine, medicineBonus));
+        FillOnCheckedListener(survival, survivalBonus);
+        FillOnCheckedListener((chrSave, chrSaveBonus));
+        FillOnCheckedListener(deception, deceptionBonus);
+        FillOnCheckedListener((intimidation, intimidationBonus));
+        FillOnCheckedListener(performance, performanceBonus);
+        FillOnCheckedListener((persuasion, persuasionBonus));
         //
         // End Checkbox listeners
         //
 
         return rootView;
+    }
+
+    private void FillOnCheckedListener(CheckBox checkBox, TextView textView){
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                FillBonuses(textView, isChecked);
+            }
+        });
     }
 
     private void FillBonuses(TextView textView, boolean isChecked){
