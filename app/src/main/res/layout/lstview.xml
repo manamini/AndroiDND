@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:hint="Weapon"
+        android:id="@+id/weapName"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:hint="ATKBonus"
+        android:id="@+id/atkBonus"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:hint="Damage"
+        android:id="@+id/damage"
+        android:textAlignment="center"/>
+
+    <ImageButton
+        android:id="@+id/delButton"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".35"
+        android:src="@drawable/del" />
+</LinearLayout>

@@ -15,6 +15,8 @@ public class MyFragmentPageAdapter extends FragmentPagerAdapter {
     private String tabTitles[] = new String[] { "Stats", "Weapons", "Spells", "Notes" };
     private Context context;
 
+
+
     public MyFragmentPageAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;

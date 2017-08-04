@@ -74,12 +74,13 @@
             android:id="@+id/charstats"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:layout_below="@+id/character">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/hptag"
@@ -113,7 +114,8 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_weight="2">
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -160,7 +162,8 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="10"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:hint="AC"/>
 
                 <EditText
                     android:id="@+id/inittext"
@@ -170,7 +173,8 @@
                     android:ems="10"
                     android:inputType="numberSigned"
                     android:text="+0"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:hint="init"/>
 
                 <EditText
                     android:id="@+id/speedtext"
@@ -180,7 +184,8 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="30"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:hint="speed"/>
 
             </TableRow>
 

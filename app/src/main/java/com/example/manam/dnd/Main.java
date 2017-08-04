@@ -16,7 +16,6 @@ import java.io.OutputStreamWriter;
 public class Main extends Fragment {
 
     public Button save, load;
-    private final static String STORETEXT="storetext.txt";
 
 
     @Override

@@ -14,7 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
 
             <TextView
@@ -22,21 +23,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Spell Attribute" />
+                android:text="Spell Attribute"
+                android:gravity="center"/>
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Spell DC" />
+                android:text="Spell DC"
+                android:gravity="center"/>
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Spell Attack Bonus" />
+                android:text="Spell Attack Bonus"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
@@ -46,32 +50,35 @@
             android:orientation="horizontal">
 
 
-            <EditText
-                android:id="@+id/editText2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Attr" />
 
-            <EditText
-                android:id="@+id/editText3"
+
+
+            <Spinner
+                android:id="@+id/ATTR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight=".5"
+                />
+
+            <TextView
+                android:id="@+id/DC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
                 android:ems="10"
                 android:inputType="number"
-                android:text="8+attr" />
+                android:hint="8+attr + prof"
+                android:gravity="center"/>
 
-            <EditText
-                android:id="@+id/editText4"
+            <TextView
+                android:id="@+id/SAB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight=".5"
                 android:ems="10"
                 android:inputType="numberSigned"
-                android:text="8+attr+prof" />
+                android:hint="attr+prof"
+                android:gravity="center"/>
 
         </LinearLayout>
     </LinearLayout>

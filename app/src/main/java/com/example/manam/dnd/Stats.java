@@ -4,6 +4,8 @@ package com.example.manam.dnd;
  * Created by manam on 5/11/2017.
  */
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -11,33 +13,36 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Stats extends Fragment {
 
-    private EditText strengthEdit, dexterityEdit, constitutionEdit, intelligenceEdit, wisdomEdit, charismaEdit;
+    static EditText strengthEdit, dexterityEdit, constitutionEdit, intelligenceEdit, wisdomEdit, charismaEdit;
+
     //Saves proficiency
-    private CheckBox strSave, dexSave, conSave, intSave, wisSave, chrSave;
+    static CheckBox strSave, dexSave, conSave, intSave, wisSave, chrSave;
     //Skill proficiency based on attribute
-    private CheckBox athletics;
-    private CheckBox acrobatics, sleight, stealth;
-    private CheckBox arcana, history, investigation, nature, religion;
-    private CheckBox animal, insight, medicine, perception, survival;
-    private CheckBox deception, intimidation, performance, persuasion;
+    static CheckBox athletics;
+    static CheckBox acrobatics, sleight, stealth;
+    static CheckBox arcana, history, investigation, nature, religion;
+    static CheckBox animal, insight, medicine, perception, survival;
+    static CheckBox deception, intimidation, performance, persuasion;
 
     //Attribute Bonuses
-    private TextView strengthBonus, dexterityBonus, constitutionBonus, intelligenceBonus, wisdomBonus, charismaBonus;
+    static TextView strengthBonus, dexterityBonus, constitutionBonus, intelligenceBonus, wisdomBonus, charismaBonus;
     //Save Bonuses
-    private TextView strSaveBonus, dexSaveBonus, conSaveBonus, intSaveBonus, wisSaveBonus, chrSaveBonus;
+    TextView strSaveBonus, dexSaveBonus, conSaveBonus, intSaveBonus, wisSaveBonus, chrSaveBonus;
     //Skill Bonuses based on attribute
-    private TextView athleticsBonus;
-    private TextView acrobaticsBonus, sleightBonus, stealthBonus;
-    private TextView arcanaBonus, historyBonus, investigationBonus, natureBonus, religionBonus;
-    private TextView animalBonus, insightBonus, medicineBonus, perceptionBonus, survivalBonus;
-    private TextView deceptionBonus, intimidationBonus, performanceBonus, persuasionBonus;
+    TextView athleticsBonus;
+    TextView acrobaticsBonus, sleightBonus, stealthBonus;
+    TextView arcanaBonus, historyBonus, investigationBonus, natureBonus, religionBonus;
+    TextView animalBonus, insightBonus, medicineBonus, perceptionBonus, survivalBonus;
+    TextView deceptionBonus, intimidationBonus, performanceBonus, persuasionBonus;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
