@@ -1,5 +1,17 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">DND</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="prefs_key"><xliff:g id="prefs_enable">enable</xliff:g></string>
+
+    <string-array name="spell_mod">
+        <item>Spell Attribute</item>
+        <item>Intelligence</item>
+        <item>Wisdom</item>
+        <item>Charisma</item>
+    </string-array>
+
+    <string-array name="Names">
+        <item>Name</item>
+    </string-array>
 </resources>
