@@ -42,8 +42,8 @@ public class Spells extends Fragment{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String dc = "8";
-                //spinPosition =position;
-                switch(position){
+                spinPosition =position;
+                switch(spinPosition){
                     case 0:
                         break;
                     case 1:

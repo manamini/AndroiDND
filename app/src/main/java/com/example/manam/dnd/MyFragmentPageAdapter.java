@@ -12,7 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class MyFragmentPageAdapter extends FragmentPagerAdapter {
 
     // Holds tab titles
-    private String tabTitles[] = new String[] { "Stats", "Weapons", "Spells", "Notes" };
+    private String tabTitles[] = new String[] { "Stats", "Weapons", "Abilities", "Spells", "Notes" };
     private Context context;
 
 
@@ -24,7 +24,7 @@ public class MyFragmentPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 5;
     }
 
     // Return the correct Fragment based on index
@@ -35,8 +35,10 @@ public class MyFragmentPageAdapter extends FragmentPagerAdapter {
         } else if(position == 1) {
             return new Weapons();
         } else if(position == 2) {
+            return new Abilities();
+        } else if(position == 3){
             return new Spells();
-        } else if (position ==3) {
+        } else if (position ==4) {
             return new Notes();
         }
 

@@ -5,6 +5,8 @@ package com.example.manam.dnd;
  */
 
 import android.app.ListActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -19,51 +21,52 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Weapons extends Fragment{
+    RecyclerView weapNames;
+    RecyclerView.Adapter weapAdapter;
+    RecyclerView.LayoutManager weapLayoutManager;
 
-    ListView l;
-    ArrayList<String> weapNames = new ArrayList<String>();
-    ArrayAdapter adapter;
-    Button addWeap;
+    static Button addWeap;
     ImageButton delWeap;
     EditText name;
+    static List<WeapInfo> data = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.weapons, container, false);
+        weapNames = (RecyclerView) rootView.findViewById(R.id.list);
 
-        l = (ListView) rootView.findViewById(R.id.list);
+        weapNames.setHasFixedSize(true);
+
+        weapLayoutManager = new LinearLayoutManager(getActivity());
+        weapNames.setLayoutManager(weapLayoutManager);
+
         name = (EditText) rootView.findViewById(R.id.weapName);
         addWeap = (Button) rootView.findViewById(R.id.addWeapon);
-        weapNames.add("");
         delWeap = (ImageButton) rootView.findViewById(R.id.delButton);
 
-        adapter = new ArrayAdapter(getActivity(),R.layout.lstview,R.id.weapName,weapNames);
-        l.setAdapter(adapter);
-
-        addWeap.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v)
-            {
-                adapter.add("");
-                adapter.notifyDataSetChanged();
-            }
-        });
-//        delWeap.setOnClickListener(new View.OnClickListener(){
-//            public void onClick(View v)
-//            {
-//                Toast.makeText(getActivity(), "OOOOOHHHH", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "OOOOOHHHH", Toast.LENGTH_SHORT).show();
-            }
-        });
+        weapAdapter = new weapAdaptor(getActivity(),getData());
+        weapNames.setAdapter(weapAdapter);
 
         return rootView;
+    }
 
+    public static List<WeapInfo> getData(){
+
+        final int del = R.drawable.del;
+        final int inf = R.drawable.weapinfo;
+
+                final WeapInfo current = new WeapInfo();
+                current.name ="";
+                current.atkBonus = "";
+                current.damage = "";
+                current.iconId = del;
+                current.infoId = inf;
+                data.add(current);
+
+        return data;
     }
 }
