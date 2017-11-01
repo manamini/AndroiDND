@@ -1,36 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/infoButton"
+        android:background="@android:color/transparent"
+        android:src="@drawable/weapinfo"
+        android:layout_weight=".35"/>
 
     <EditText
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:hint="Weapon"
+        android:textSize="18dp"
         android:id="@+id/weapName"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:gravity="center"/>
 
     <EditText
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:hint="ATKBonus"
+        android:textSize="18dp"
         android:id="@+id/atkBonus"
-        android:textAlignment="center"/>
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        android:gravity="center"/>
 
     <EditText
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:hint="Damage"
+        android:textSize="18dp"
         android:id="@+id/damage"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:gravity="center"/>
 
     <ImageButton
         android:id="@+id/delButton"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight=".35"
-        android:src="@drawable/del" />
+        android:background="@android:color/transparent"
+        android:src="@drawable/del"/>
 </LinearLayout>

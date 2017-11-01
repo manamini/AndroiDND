@@ -2,10 +2,7 @@ package com.example.manam.dnd;
 
 
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -17,12 +14,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.manam.dnd.R.id.parent;
 
 public class MainActivity extends FragmentActivity {
 
@@ -84,14 +78,32 @@ public class MainActivity extends FragmentActivity {
 
     public String Note = "notes";
 
+    public String Ability = "ability";
+
     public Spinner load;
     List<String> namesList = new ArrayList<>();
     Gson gson = new Gson();
+    Gson weapsGson = new Gson();
     public String jsonText;
     public String JtoGText;
+
+    public String weapsJsonText;
+    public String weapsJtoGText;
+
     public String defName = "Default";
 
     public int spin;
+
+    EditText name;
+    EditText cclass;
+    EditText exp;
+    EditText hp;
+    EditText hpm;
+    EditText armor;
+    EditText init;
+    EditText speed;
+    TextView level;
+    TextView proficiency;
 
 
     @Override
@@ -112,6 +124,7 @@ public class MainActivity extends FragmentActivity {
         loadAdapter.add(defName);
 
         gson = new GsonBuilder().create();
+        weapsGson = new GsonBuilder().create();
 
         jsonText = PreferenceData.loadData(getBaseContext(),defName,JtoGText,"");
         List<String> text = gson.fromJson(jsonText, List.class);
@@ -125,16 +138,16 @@ public class MainActivity extends FragmentActivity {
 
         viewPager.setOffscreenPageLimit(5);
 
-        final EditText name = (EditText) findViewById(R.id.nametext);
-        final EditText cclass = (EditText) findViewById(R.id.classtext);
-        final EditText exp = (EditText) findViewById(R.id.exptext);
-        final EditText hp = (EditText) findViewById(R.id.hptext);
-        final EditText hpm = (EditText) findViewById(R.id.hpmax);
-        final EditText armor = (EditText) findViewById(R.id.actext);
-        final EditText init = (EditText) findViewById(R.id.inittext);
-        final EditText speed = (EditText) findViewById(R.id.speedtext);
-        final TextView level = (TextView) findViewById(R.id.leveltext);
-        final TextView proficiency = (TextView) findViewById(R.id.proftext);
+        name = (EditText) findViewById(R.id.nametext);
+        cclass = (EditText) findViewById(R.id.classtext);
+        exp = (EditText) findViewById(R.id.exptext);
+        hp = (EditText) findViewById(R.id.hptext);
+        hpm = (EditText) findViewById(R.id.hpmax);
+        armor = (EditText) findViewById(R.id.actext);
+        init = (EditText) findViewById(R.id.inittext);
+        speed = (EditText) findViewById(R.id.speedtext);
+        level = (TextView) findViewById(R.id.leveltext);
+        proficiency = (TextView) findViewById(R.id.proftext);
 
         jsonText = PreferenceData.loadData(getBaseContext(),name.getText().toString(),JtoGText,"");
         viewPager.setAdapter(new MyFragmentPageAdapter(getSupportFragmentManager(),
@@ -199,6 +212,11 @@ public class MainActivity extends FragmentActivity {
 
                 PreferenceData.saveData(getBaseContext(),name.getText().toString(), Note, Notes.notes.getText().toString());
 
+                PreferenceData.saveData(getBaseContext(),name.getText().toString(),Ability, Abilities.ablist.getText().toString());
+
+                weapsJsonText = weapsGson.toJson(weapAdaptor.weapData);
+                PreferenceData.saveData(getBaseContext(),name.getText().toString(),weapsJtoGText,weapsJsonText);
+
                 jsonText = gson.toJson(namesList);
                 PreferenceData.saveData(getBaseContext(),defName,JtoGText,jsonText);
 
@@ -210,59 +228,9 @@ public class MainActivity extends FragmentActivity {
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                    name.setText("");
-                    level.setText("");
-                    exp.setText("");
-                    proficiency.setText("");
-                    hp.setText("");
-                    hpm.setText("");
-                    armor.setText("");
-                    init.setText("");
-                    speed.setText("");
-                    cclass.setText("");
-
-                    Stats.strengthEdit.setText(""); ;
-                    Stats.dexterityEdit.setText("");
-                    Stats.constitutionEdit.setText("");
-                    Stats.intelligenceEdit.setText("");
-                    Stats.wisdomEdit.setText("");
-                    Stats.charismaEdit.setText("");
-
-                    //Saves proficiency
-                    Stats.strSave.setChecked(false);
-                    Stats.dexSave.setChecked(false);
-                    Stats.conSave.setChecked(false);
-                    Stats.intSave.setChecked(false);
-                    Stats.wisSave.setChecked(false);
-                    Stats.chrSave.setChecked(false);
-                    //Skill proficiency based on attribute
-                    Stats.athletics.setChecked(false);
-                    Stats.acrobatics.setChecked(false);
-                    Stats.sleight.setChecked(false);
-                    Stats.stealth.setChecked(false);
-                    Stats.arcana.setChecked(false);
-                    Stats.history.setChecked(false);
-                    Stats.investigation.setChecked(false);
-                    Stats.nature.setChecked(false);
-                    Stats.religion.setChecked(false);
-                    Stats.animal.setChecked(false);
-                    Stats.insight.setChecked(false);
-                    Stats.medicine.setChecked(false);
-                    Stats.perception.setChecked(false);
-                    Stats.survival.setChecked(false);
-                    Stats.deception.setChecked(false);
-                    Stats.intimidation.setChecked(false);
-                    Stats.performance.setChecked(false);
-                    Stats.persuasion.setChecked(false);
-
-                Notes.notes.setText("");
-
+                clear();
                 load.setSelection(0);
-
                 Toast.makeText(getBaseContext(), "Cleared text",Toast.LENGTH_SHORT).show();
-
-
             }
         });
 
@@ -285,10 +253,20 @@ public class MainActivity extends FragmentActivity {
         load.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                clear();
                 spin = position;
 
                 jsonText = PreferenceData.loadData(getBaseContext(),parent.getItemAtPosition(position).toString(),JtoGText,"");
+                weapsJsonText = PreferenceData.loadData(getBaseContext(),parent.getItemAtPosition(position).toString(),weapsJtoGText,"");
+
+                //Log.d("Load","Load called: " + weapsJsonText);
+
+                List<WeapInfo> weaps;
+                //weaps = Arrays.asList(weapsGson.fromJson(weapsJsonText,WeapInfo[].class));
+                //weapAdaptor.weapData.addAll(weaps);
+
+                //Toast.makeText(getBaseContext(), "weapon: " + weaps.size(),Toast.LENGTH_SHORT).show();
+
 
                 name.setText(PreferenceData.loadData(getBaseContext(),parent.getItemAtPosition(position).toString(), Name, name.getText().toString()));
                 cclass.setText(PreferenceData.loadData(getBaseContext(),parent.getItemAtPosition(position).toString(), Class, cclass.getText().toString()));
@@ -342,6 +320,8 @@ public class MainActivity extends FragmentActivity {
 
                 Spells.spinner.setSelection(PreferenceData.loadSpinner(getBaseContext(),parent.getItemAtPosition(position).toString(),spinLoc,Spells.spinPosition));
 
+                Abilities.ablist.setText(PreferenceData.loadData(getBaseContext(),name.getText().toString(), Ability, Abilities.ablist.getText().toString()));
+
 
                 //Toast.makeText(getBaseContext(), "Loaded: " + name.getText().toString(),Toast.LENGTH_SHORT).show();
             }
@@ -350,6 +330,97 @@ public class MainActivity extends FragmentActivity {
 
             }
         });
+    }
+
+    public void clear(){
+        name.setText("");
+        level.setText("");
+        exp.setText("0");
+        proficiency.setText("2");
+        hp.setText("");
+        hpm.setText("");
+        armor.setText("");
+        init.setText("");
+        speed.setText("");
+        cclass.setText("");
+
+        Stats.strengthEdit.setText(""); ;
+        Stats.dexterityEdit.setText("");
+        Stats.constitutionEdit.setText("");
+        Stats.intelligenceEdit.setText("");
+        Stats.wisdomEdit.setText("");
+        Stats.charismaEdit.setText("");
+
+        //Saves proficiency
+        Stats.strSave.setChecked(true);
+        Stats.dexSave.setChecked(true);
+        Stats.conSave.setChecked(true);
+        Stats.intSave.setChecked(true);
+        Stats.wisSave.setChecked(true);
+        Stats.chrSave.setChecked(true);
+        //Skill proficiency based on attribute
+        Stats.athletics.setChecked(true);
+        Stats.acrobatics.setChecked(true);
+        Stats.sleight.setChecked(true);
+        Stats.stealth.setChecked(true);
+        Stats.arcana.setChecked(true);
+        Stats.history.setChecked(true);
+        Stats.investigation.setChecked(true);
+        Stats.nature.setChecked(true);
+        Stats.religion.setChecked(true);
+        Stats.animal.setChecked(true);
+        Stats.insight.setChecked(true);
+        Stats.medicine.setChecked(true);
+        Stats.perception.setChecked(true);
+        Stats.survival.setChecked(true);
+        Stats.deception.setChecked(true);
+        Stats.intimidation.setChecked(true);
+        Stats.performance.setChecked(true);
+        Stats.persuasion.setChecked(true);
+
+        Abilities.ablist.setText("");
+
+        Notes.notes.setText("");
+
+        //Attribute Bonuses
+        //strengthBonus, dexterityBonus, constitutionBonus, intelligenceBonus, wisdomBonus, charismaBonus;
+        Stats.strengthBonus.setText("0");
+        Stats.dexterityBonus.setText("0");
+        Stats.constitutionBonus.setText("0");
+        Stats.intelligenceBonus.setText("0");
+        Stats.wisdomBonus.setText("0");
+        Stats.charismaBonus.setText("0");
+
+        //Saves proficiency
+        Stats.strSave.setChecked(false);
+        Stats.dexSave.setChecked(false);
+        Stats.conSave.setChecked(false);
+        Stats.intSave.setChecked(false);
+        Stats.wisSave.setChecked(false);
+        Stats.chrSave.setChecked(false);
+        //Skill proficiency based on attribute
+        Stats.athletics.setChecked(false);
+        Stats.acrobatics.setChecked(false);
+        Stats.sleight.setChecked(false);
+        Stats.stealth.setChecked(false);
+        Stats.arcana.setChecked(false);
+        Stats.history.setChecked(false);
+        Stats.investigation.setChecked(false);
+        Stats.nature.setChecked(false);
+        Stats.religion.setChecked(false);
+        Stats.animal.setChecked(false);
+        Stats.insight.setChecked(false);
+        Stats.medicine.setChecked(false);
+        Stats.perception.setChecked(false);
+        Stats.survival.setChecked(false);
+        Stats.deception.setChecked(false);
+        Stats.intimidation.setChecked(false);
+        Stats.performance.setChecked(false);
+        Stats.persuasion.setChecked(false);
+
+        Spells.spellDC.setText("0");
+        Spells.spellAttack.setText("0");
+        Spells.spinPosition = 0;
     }
 
 
