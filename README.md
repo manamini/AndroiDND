@@ -1,7 +1,12 @@
 # AndroiDND
 5e DND Character tracker
 
+1/17/2018
+Main saving process is working. all stats, saves, and skills save and load correctly
 
+working on xml parsing for class abilities to be inserted
+
+removed weapons for time being as they were causing issues and may end up reworking them.
 
 5/18/17
 
