@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.google.gson.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends FragmentActivity {
@@ -124,7 +125,6 @@ public class MainActivity extends FragmentActivity {
         loadAdapter.add(defName);
 
         gson = new GsonBuilder().create();
-        weapsGson = new GsonBuilder().create();
 
         jsonText = PreferenceData.loadData(getBaseContext(),defName,JtoGText,"");
         List<String> text = gson.fromJson(jsonText, List.class);
@@ -214,9 +214,6 @@ public class MainActivity extends FragmentActivity {
 
                 PreferenceData.saveData(getBaseContext(),name.getText().toString(),Ability, Abilities.ablist.getText().toString());
 
-                weapsJsonText = weapsGson.toJson(weapAdaptor.weapData);
-                PreferenceData.saveData(getBaseContext(),name.getText().toString(),weapsJtoGText,weapsJsonText);
-
                 jsonText = gson.toJson(namesList);
                 PreferenceData.saveData(getBaseContext(),defName,JtoGText,jsonText);
 
@@ -257,15 +254,6 @@ public class MainActivity extends FragmentActivity {
                 spin = position;
 
                 jsonText = PreferenceData.loadData(getBaseContext(),parent.getItemAtPosition(position).toString(),JtoGText,"");
-                weapsJsonText = PreferenceData.loadData(getBaseContext(),parent.getItemAtPosition(position).toString(),weapsJtoGText,"");
-
-                //Log.d("Load","Load called: " + weapsJsonText);
-
-                List<WeapInfo> weaps;
-                //weaps = Arrays.asList(weapsGson.fromJson(weapsJsonText,WeapInfo[].class));
-                //weapAdaptor.weapData.addAll(weaps);
-
-                //Toast.makeText(getBaseContext(), "weapon: " + weaps.size(),Toast.LENGTH_SHORT).show();
 
 
                 name.setText(PreferenceData.loadData(getBaseContext(),parent.getItemAtPosition(position).toString(), Name, name.getText().toString()));
